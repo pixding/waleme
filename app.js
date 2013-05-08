@@ -25,7 +25,7 @@ app.helpers({
 	common: common
 });
 
-
+//test
 
 var static_dir = path.join(__dirname, 'static');
 app.configure('development', function(){

@@ -18,9 +18,7 @@ app.configure(function(){
 	app.use(express.session({
 		secret: "xiangyoyo",
 	}));
-	
 })
-
 
 app.helpers({
 	config: config,

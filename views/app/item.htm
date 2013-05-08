@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title><%= iosapp.name%> - waleme</title>
+    <meta name="keywords" content="<%for(var i=0;i<iosapp.categorys.length;i++){%><%= common.iosgamecat[iosapp.categorys[i]]%>,<%}%>iPhone<%= iosapp.category==1?"游戏":"软件"%>" />
+    <meta name="description" content="<%- iosapp.summary.replace(/-\n/g,"-").replace(/\n/g,"").substring(0,80)+"..." %>,下载<%= iosapp.category==1?"试玩":"试用"%><%= iosapp.name%>,尽在waleme.com" />
+	<link rel="stylesheet" type="text/css" href="/css/base.css" />
+	<link rel="stylesheet" type="text/css" href="/css/index.css" />
+</head>
+<body>
+	<%- partial('module/header') %>
+	<%- partial('module/nav',{nav:3}) %>
+	<style>
+		.iosinfo{ padding:10px 0;}
+		.iosinfo .app-img{ border-radius:18px; width:150px; float:left; height:150px; overflow:hidden; }
+		.iosinfo .app-detail{float:left; display:inline; margin-left:10px; width:450px;}
+		.iosinfo .app-detail dd{ padding:3px 0;}
+		.iosinfo .app-detail dd label{ color:#333;}
+		.iosinfo .app-detail dd span{ color:#666;}
+		.iosinfo .app-score .s{ font-size:22px; text-align:right; font-style:italic; color:#f60; font-weight:bold;}
+		.iosinfo .app-score .unit{ color:#f60; font-size:18px; padding:0 2px;}
+		.ios-relateimg .relate-desc{border-bottom:2px solid #390;}
+		.ios-relateimg h3{ padding:0px 15px; font-size:14px; line-height:30px; height:30px; text-align:center; margin-left:10px; background:#390; display:inline-block; color:#fff;}
+		.ios-relateimg .relate-con{padding:10px 0;}
+		.relate-summary{ text-indent:2em; font-size:14px; color:#333; line-height:24px;}
+	</style>
+	
+	<div class="grid990 fn-clear">
+		<div class="main-box fn-clear">
+			
+			<div class="part-box fn-left">
+				<div class="article ">
+					<div class="title"><h1><%= iosapp.name%></h1></div>
+					
+					<div class="iosinfo fn-clear">
+						<div class="app-img"><img width="150" height="150" src="<%= iosapp.img%>"  alt="<%= iosapp.name%>" /></div>
+						<dl class="app-detail">
+							<dd><label>版本：</label><span><%= iosapp.version%></span></dd>
+							<dd>
+								<label>类别：</label><%for(var i=0;i<iosapp.categorys.length;i++){%><% if(iosapp.category==1){%><span><%= common.iosgamecat[iosapp.categorys[i]]%></span><%}else{%><span><%= common.iossoftcate[iosapp.categorys[i]]%></span><%}}%>
+							</dd>
+							<dd><label>大小：</label><span><%= iosapp.size%></span></dd>
+							<dd><label>时间：</label><span><%= iosapp.releasedate%></span></dd>
+							<dd><label>语言：</label><span><%= iosapp.language%></span></dd>
+							<dd><label>系统要求：</label><span><%= iosapp.systemneed%></span></dd>
+							<a href="<%= iosapp.link%>" target="_blank">官网下载</a>
+						</dl>
+						<div class="app-score">
+							<span class="s"><%= iosapp.score%></span><span class="unit">分</span>
+						</div>
+					</div>
+					<div class="ios-relateimg">
+						<div class="relate-desc">
+							<h3>相关简价</h3>
+						</div>
+						<div class="relate-con">
+							<div class="relate-summary">
+								<%- iosapp.summary.replace(/-\n/g,"-").replace(/\n/g,"<p>") %>
+							</div>
+						<% for(var i=0;i<iosapp.relateimg.length;i++){%>
+							<div class="" style="text-align:center; padding:10px;">
+								<img src="<%= config.staticdomain %>upload/iosapp/<%= iosapp.appid%>/<%= iosapp.relateimg[i]%>" />
+							</div>
+						<%}%>
+						</div>
+					</div>
+					
+					
+					<div class="more_articles fn-clear">
+						<p class="pre fn-left">【上一篇】<a href="#">神奇周四：神庙逃亡2 最终幻想等新游推荐</a></p>
+						<p class="next fn-right">【下一篇】<a href="#">OS X 10.8.3新测试版发布 进行小幅更新</a></p>
+					</div>
+					<!-- Duoshuo Comment BEGIN -->
+					<div class="ds-thread"></div>
+					<script type="text/javascript">
+					var duoshuoQuery = {short_name:"djtest"};
+					(function() {
+						var ds = document.createElement('script');
+						ds.type = 'text/javascript';ds.async = true;
+						ds.src = 'http://static.duoshuo.com/embed.js';
+						ds.charset = 'UTF-8';
+						(document.getElementsByTagName('head')[0] 
+						|| document.getElementsByTagName('body')[0]).appendChild(ds);
+					})();
+					</script>
+					<!-- Duoshuo Comment END -->
+
+					
+					
+				</div>
+			</div>
+		
+		
+		</div>
+		
+	</div>
+	
+	
+    <div>
+        
+    </div>
+
+
+	<%- partial('module/footer') %>
+</body>
+</html>

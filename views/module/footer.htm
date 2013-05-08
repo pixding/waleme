@@ -1,0 +1,72 @@
+<div class="footer">
+	<ul class="foot-ul">
+		<li><a href="#">关于waleme</a></li>
+		<li><a href="#">网站地图</a></li>
+		<li><a href="#">合作伙伴</a></li>
+		<li><a href="#">法律声明</a></li>
+	</ul>
+	<div><span>Copyright &copy; 2012 waleme.com, All rights reserved waleme 版权所有</span></div>
+</div>
+
+<script type="text/javascript">
+$(function(){
+	$(".stype").hover(function(){
+		$(this).find(".stype_sel").show();
+	},function(){
+		$(this).find(".stype_sel").hide();
+	})
+
+	$(".stype_sel li").bind("click",function(){
+		$(".stype_sel li").removeClass("curr");
+		$(this).addClass("curr");
+		var v = $(this).attr("data-v");
+		var obj = $(".J_searchType");
+		var oldv = obj.attr('data-v');
+	    switch(v){
+	    	case "1":
+	    	obj.removeClass("stype_"+oldv).addClass("stype_1").attr("data-v","1").text("资讯");
+	        break;
+	        case "2":
+	    	obj.removeClass("stype_"+oldv).addClass("stype_2").attr("data-v","2").text("应用");
+	        break;
+	        case "3":
+	    	obj.removeClass("stype_"+oldv).addClass("stype_3").attr("data-v","3").text("壁纸");
+	        break;
+	    }
+	    $(".stype .stype_sel").hide();
+	    
+	    
+	    
+	})
+	
+	$(".J_searchBtn").bind("click",function(){
+		var key = $(".J_sval").val();
+		var type = "news";
+		if(key){
+			var v = $(".J_searchType").attr("data-v");
+			if(v == "1"){
+				type = "news";
+			}
+			if(v == "2"){
+				type = "app";
+			}
+			if(v == "3"){
+				type = "image";
+			}
+			var url = "http://www.waleme.com/search/"+type+"/"+key;
+			$(".J_searchBtn").attr("href",url);
+			return true;
+		}else{
+			$(".J_sval").focus();
+			return false;
+		}
+	})
+	
+
+})
+</script>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F689fbbd8474d6bdcecea0008a090625b' type='text/javascript'%3E%3C/script%3E"));
+</script>

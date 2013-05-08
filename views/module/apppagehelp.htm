@@ -1,0 +1,24 @@
+﻿<% var totalpage = Math.ceil(total/config.applimit) %>
+<% page = Number(page)%>
+<% var s_page = page-3>0?page-3:1 %>
+<% var e_page = page+3<totalpage?page+3:totalpage %>
+<%if(totalpage>1){%>
+<div class="fn-page fn-clear">
+    <span class="pageinfo">当前第<em><%= page%></em>页，总共<em><%= total%></em>项<em><%= totalpage%></em>页</span>
+    <ul class="pagelist">
+        <li class="page-item prev">
+            <a title="返回第一页" href="<%= base+1%>">&lt;&lt;</a>
+        </li>
+        <% for(var i=s_page;i<=e_page;i++){ %>
+        <li class="page-item">
+            <a <% if(i==page){%>class="curr"<%}%> href="<%= base+i%>"><%= i%></a>
+        </li>
+        <%} %>
+        <li class="page-item prev">
+            <a title="前往最后一页" href="<%= base+totalpage%>">&gt;&gt;</a>
+        </li>
+    </ul>
+        
+</div>
+<%} %>
+

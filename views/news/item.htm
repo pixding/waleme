@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title><%= news.title%> -  waleme</title>
+    <meta name="keywords" content="<%= news.tags.join(',')%>" />
+    <meta name="description" content="<%= news.desc.substring(0,150)%>" />
+	<link rel="stylesheet" type="text/css" href="/css/base.css" />
+	<link rel="stylesheet" type="text/css" href="/css/index.css" />
+</head>
+<body>
+	<%- partial('module/header') %>
+	<%- partial('module/nav',{nav:2}) %>
+	
+	<div class="grid990">
+		
+		<div class="main-box fn-clear">
+			<div class="part-box fn-left">
+				<div class="article">
+					<div class="title"><h1><a href="/news/<%= news._id%>"><%= news.title%></a></h1></div>
+					<div class="article-info">
+						<span class="author"><label>作者：</label><%= news.author%></span> 
+						<span class="publish-time"><label>发表于：</label><%= news.createtime%></span>
+						<span class="tip">
+							<label>关键词：</label>
+							<% for(var j=0;j<news.tags.length&&j<4;j++){%>
+							<a href="#"><%= news.tags[j]%></a>
+							<%}%>
+						</span>
+						<span class="count">点击：<%= news.readcount%>次</span> 
+					</div>
+					<div class="article-con fn-clear">
+						
+						<div class="content" id="artContent">
+						<div align="center"><img width="630px"  src="<%= config.staticdomain %>upload/article/700250/<%= news.imgname%>" alt="<%= news.title%>" /></div>
+						<%- news.content%>
+						</div>
+						
+					</div>
+					
+					<div class="more_articles fn-clear">
+						<p class="pre fn-left">【上一篇】<a href="#">神奇周四：神庙逃亡2 最终幻想等新游推荐</a></p>
+						<p class="next fn-right">【下一篇】<a href="#">OS X 10.8.3新测试版发布 进行小幅更新</a></p>
+					</div>
+					<!-- Duoshuo Comment BEGIN -->
+						<div class="ds-thread"></div>
+						<script type="text/javascript">
+						var duoshuoQuery = {short_name:"waleme"};
+							(function() {
+								var ds = document.createElement('script');
+								ds.type = 'text/javascript';ds.async = true;
+								ds.src = 'http://static.duoshuo.com/embed.js';
+								ds.charset = 'UTF-8';
+								(document.getElementsByTagName('head')[0] 
+								|| document.getElementsByTagName('body')[0]).appendChild(ds);
+							})();
+						</script>
+					<!-- Duoshuo Comment END -->
+
+					
+					
+				</div>
+			</div>
+			
+			<div class="side-box fn-right">
+				<div class="side-box-rumen ">
+					<div class="top fn-clear">
+						<h3 class="title fn-left">手机游戏攻略</h3>
+					</div>
+					<div class="con">
+						<ul class="rumen_list fn-clear">
+							<% for(var i=0;i<9;i++){%>
+							<li><a href="http://www.candou.com/tutorial/ios/2012-10-12/449009.shtml" target="_blank">苹果iPhone 5购机指南5购机指南</a></li>
+							<%}%>
+						</ul>
+					</div>
+				</div>
+				
+				
+				
+				<div class="side-box-sort fn-clear">
+					<div class="tab fn-clear">
+						<ul>
+							<li class="on"><a href="#">游戏排行榜</a><i></i></li>
+							<li><a href="#">应用排行榜</a></li>
+						</ul>
+						<a class="tab-more" href="#">更多</a>
+					</div>
+					<div class="con">
+						<ul class="ranklist fn-clear">
+							<%for(var i=0;i<9;i++){%>
+							<li>
+								<div class="itemshort">
+									<span class="num num<%= i+1%>"></span>
+									<h3><a href="/iphone/game/info_541810.html" title="水果忍者切西瓜 Fruit Ninja" target="_blank">水果忍者切西瓜</a></h3>
+									<span class="down-count">1200万人使用</span>
+								</div>
+							</li>
+							<%}%>
+						</ul>
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+		
+		
+	</div>
+	
+	<script src="/js/jquery.js"></script>
+	<%- partial('module/footer') %>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>专注于互联网热门资讯,iPhone游戏软件下载 - waleme</title>
+    <meta name="keywords" content="互联网,iPhone游戏,iPhone软件,互联网资讯,游戏攻略" />
+    <meta name="description" content="哇乐么关注于国内外互联网的最新资讯,分享互联网产品设计,交互,体验,提供最热门的iPhone游戏/iPhone软件/iPhone4/iPhone4s/iPhone5游戏软件攻略下载。" />
+	<link rel="stylesheet" type="text/css" href="/css/base.css" />
+	<link rel="stylesheet" type="text/css" href="/css/index.css" />
+</head>
+<body>
+	<%- partial('module/header') %>
+	<%- partial('module/nav',{nav:1}) %>
+	
+	
+	<div class="grid990">
+		<div class="main-box fn-clear">
+			<div class="slider-box fn-left">
+				<div class="slides_container">
+					<% for(var i=0;i<bannernew.length;i++){%>
+					<div class="item">
+						<a href="/news/<%= bannernew[i]._id%>" target="_blank">
+							<img src="<%= config.staticdomain %>upload/article/700250/<%= bannernew[i].imgname%>" />
+							<div class="opac"></div>
+							<div class="title"><%= bannernew[i].title%></div>
+						</a>
+					</div>
+					<%}%>
+				</div>
+			</div>
+			<div class="side-box fn-right">
+				<div class="side-good-art ">
+					<h3>最近热门文章~</h3>
+					<ul >
+						<% for(var i=0;i<hotnew.length;i++){%>
+						<li><a  title="<%= hotnew[i].title %>" href="/news/<%= hotnew[i]._id%>" target="_blank"><img src="<%= config.staticdomain %>upload/article/3020/<%= hotnew[i].imgname%>" ><span><%= hotnew[i].title.substring(0,15)%><span></a></li>
+						<%}%>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="grid990" >
+		<div class="main-box">
+			<a href="#"><img src="./images/old/ads.jpg" alt="" width="990" /></a>
+		</div>
+	</div>
+	
+	
+	
+	<div class="grid990">
+		<div class="main-box fn-clear">
+			<div class="part-box fn-left">
+				<div class="part-box-sapp ">
+					<div class="top fn-clear">
+						<h3 class="title fn-left">游戏推荐</h3>
+						<ul class="sub-ul fn-right">
+							<li><a href="http://www.waleme.com/app/ioslist/7001">动作游戏</a></li>
+							<li><a href="http://www.waleme.com/app/ioslist/7002">探险游戏</a></li>
+							<li><a href="http://www.waleme.com/app/ioslist/7014">角色扮演</a></li>
+							<li><a href="http://www.waleme.com/app/ioslist/7013">赛车游戏</a></li>
+							<li><a class="more" href="http://www.waleme.com/app/ioslist/">更多&gt;&gt;</a></li>
+						</ul>
+					</div>
+					<div class="con fn-clear">
+						<% for(var i=0;i<gameapp.length&&i<18;i++){%>
+						<dl>
+							<dt>
+								<a target="_blank" title="<%= gameapp[i].name%>" href="/app/ios/<%= gameapp[i].appid%>">
+									
+									<img width="60" height="60" alt="<%= gameapp[i].name%>" src="<%= gameapp[i].img%>">
+								</a>
+							</dt>
+							<dd><%= gameapp[i].name.substring(0,6)%></dd>
+						</dl>
+						<%}%>
+					</div>
+				</div>
+			</div>
+			<div class="side-box fn-right">
+				<div class="side-box-rumen ">
+					<div class="top fn-clear">
+						<h3 class="title fn-left">手机游戏攻略</h3>
+					</div>
+					<div class="con">
+						<ul class="rumen_list fn-clear">
+							<% for(var i=0;i<9;i++){%>
+							<li><a href="http://www.candou.com/tutorial/ios/2012-10-12/449009.shtml" target="_blank">苹果iPhone 5购机指南</a></li>
+							<%}%>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="grid990">
+		<div class="main-box">
+			<div class="all-box all-box-tj">
+				<div class="top fn-clear">
+					<h3 class="title fn-left">热门软件<span class="tdesc"></span></h3>
+					<ul class="sub-ul fn-right">
+						<li><a href="http://www.waleme.com/app/ioslist/6008">摄影与录像</a></li>
+						<li><a href="http://www.waleme.com/app/ioslist/6016">娱乐</a></li>
+						<li><a href="http://www.waleme.com/app/ioslist/6011">音乐</a></li>
+						<li><a href="http://www.waleme.com/app/ioslist/6013">健康健美</a></li>
+						<li><a href="http://www.waleme.com/app/ioslist/6005">社交</a></li>
+						<li><a href="http://www.waleme.com/app/ioslist/6002">工具</a></li>
+						<li><a class="more" href="http://www.waleme.com/app/ioslist/6018">更多&gt;&gt;</a></li>
+					</ul>
+				</div>
+				
+				<div class="con bapplist fn-clear">
+					<% for(var i=0;i<softapp.length&&i<20;i++){%>
+					<dl class="bapp fn-left">
+						<dt>
+							<a target="_blank" title="<%= softapp[i].name%>" href="/app/ios/<%= softapp[i].appid%>">
+								<img width="60" height="60" alt="<%= softapp[i].name%>"  src="<%= softapp[i].img%>">
+							</a>
+						</dt>
+						<dd>
+							<h3><a target="_blank" title="<%= softapp[i].name%>" href="/app/ios/<%= softapp[i].appid%>"><%= softapp[i].name.substring(0,6)%></a></h3>
+							<div class="gradeStar3" title="<%= softapp[i].score%>分">
+								<span class="gray"></span>
+								<span class="orange" style="width:<%= softapp[i].score*15%>px"></span>
+							</div>
+							<p>版本1.1.0 | 50.70MB</p>
+							<p>分享日期 2013-01-23</p>
+						</dd>
+					</dl>
+					<%}%>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="grid990">
+		<div class="main-box">
+			<div class="all-box all-box-bz">
+				<div class="top fn-clear">
+					<h3 class="title fn-left">手机壁纸</h3>
+					<ul class="sub-ul fn-right">
+						<li><a href="#">风景</a></li>
+						<li><a href="#">人物</a></li>
+						<li><a href="#">卡通</a></li>
+						<li><a href="#">汽车</a></li>
+						<li><a class="more" href="#">更多&gt;&gt;</a></li>
+					</ul>
+				</div>
+				<div class="con fn-clear">
+					<% for(var i=0;i<5;i++){%>
+					<dl class="bzitem"><a href="#"><img src="./images/old/v1/bz0<%= i+1%>.jpg"></a></dl>
+					<%}%>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<script src="/js/jquery.js"></script>
+	<script src="/js/slides.min.jquery.js"></script>
+	<script>
+	$(function(){
+		$(".slider-box").slides({
+			effect: 'fade',
+			crossfade: true,
+			play: 5000,
+			pause: 5000,
+			hoverPause: true,
+			generatePagination: true 
+		});
+	});
+	</script>
+	<%- partial('module/footer') %>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title></title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="/css/base.css" />
+	<link rel="stylesheet" type="text/css" href="/css/index.css" />
+</head>
+<body>
+	<%- partial('module/header') %>
+	<%- partial('module/nav',{nav:2}) %>
+	
+	<div class="grid990">
+		
+		<div class="main-box fn-clear">
+			<div class="part-box fn-left">
+				<% for(var i=0;i<news.length;i++){%>
+				<div class="article">
+					<div class="title"><h3><a href="/news/<%= news[i]._id%>"><%= news[i].title%></a></h3></div>
+					<div class="article-con fn-clear">
+						<div class="article-simg fn-left"><img src="<%= config.staticdomain %>upload/article/210140/<%= news[i].imgname%>"></div>
+						<div class="article-desc fn-left">
+							<p><%= news[i].desc%></p>
+							<p class="readmore"><a href="#" class="">阅读全文</a></p>
+						</div>
+					</div>
+					<div class="article-footer">
+						<span class="publish-time"><label>发表于:</label><%= news[i].createtime%></span>
+						<span class="tip">
+							<label>关键词:</label>
+							<% for(var j=0;j<news[i].tags.length&&j<4;j++){%>
+							<a href="http://www.waleme.com/search/news/<%= news[i].tags[j]%>"><%= news[i].tags[j]%></a>
+							<%}%>
+						</span>
+					</div>
+				</div>
+				<%}%>
+			</div>
+			
+			<div class="side-box fn-right">
+				<div class="side-box-rumen ">
+					<div class="top fn-clear">
+						<h3 class="title fn-left">手机游戏攻略</h3>
+					</div>
+					<div class="con">
+						<ul class="rumen_list fn-clear">
+							<% for(var i=0;i<9;i++){%>
+							<li><a href="http://www.candou.com/tutorial/ios/2012-10-12/449009.shtml" target="_blank">苹果iPhone 5购机指南5购机指南</a></li>
+							<%}%>
+						</ul>
+					</div>
+				</div>
+				
+				
+				
+				<div class="side-box-sort fn-clear">
+					<div class="tab fn-clear">
+						<ul>
+							<li class="on"><a href="#">游戏排行榜</a><i></i></li>
+							<li><a href="#">应用排行榜</a></li>
+						</ul>
+						<a class="tab-more" href="#">更多</a>
+					</div>
+					<div class="con">
+						<ul class="ranklist fn-clear">
+							<%for(var i=0;i<9;i++){%>
+							<li>
+								<div class="itemshort">
+									<span class="num num<%= i+1%>"></span>
+									<h3><a href="/iphone/game/info_541810.html" title="水果忍者切西瓜 Fruit Ninja" target="_blank">水果忍者切西瓜</a></h3>
+									<span class="down-count">1200万人使用</span>
+								</div>
+							</li>
+							<%}%>
+						</ul>
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+		
+		
+	</div>
+	
+	<script src="/js/jquery.js"></script>
+	<%- partial('module/footer') %>
+</body>
+</html>

@@ -1,0 +1,113 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title></title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="/css/base.css" />
+	<link rel="stylesheet" type="text/css" href="/css/index.css" />
+</head>
+<body>
+	<%- partial('module/header') %>
+	<%- partial('module/nav',{nav:3}) %>
+	
+	<div class="grid990 fn-clear">
+		<div class="main-box">
+			<style>
+				.applist{ padding:0px 40px 5px 10px;}
+				.applist dt{ color:#333; font-size:14px; font-weight:bold;}
+				.applist dt a{color:#333;}
+				.applist dd{ height:24px; color:#666; margin:2px 0; line-height:24px; position:relative; text-indent:10px; cursor:pointer;}
+				.applist dd a{color:#666; text-decoration:none;}
+				.applist dd:hover{ background:#f80; color:#fff;}
+				.applist dd:hover a,.applist dd.curr a{ color:#fff;}
+				.applist dd.curr{ background:#f60; color:#fff;}
+				.applist dd.curr i{ position:absolute; display:block; right:-5px; top:7px; width:0px; height:0px; border:5px solid #f60;transform: rotate(-90deg);-moz-transform: rotate(45deg);  }
+				
+				.all-box{width:820px;}
+				.all-box-tj .bapplist .bapp {width:270px;}
+				
+				.fn-page{ padding:10px;}
+                .fn-page .pageinfo{ float:left; font-size:14px;color:#666; line-height:32px;}
+                .fn-page .pageinfo em{ font-style:normal; color:#f60; padding:0 2px; }
+                .fn-page .pagelist{ float:right;}
+                .fn-page .page-item{ list-style:none; display:inline; float:left; line-height:32px ; margin-left:8px; }
+                .fn-page .page-item a{ background:url(/images/page.png) 0 0 no-repeat; text-decoration:none; color:#666;display:block; border-radius:5px; width:32px; text-align:center;  height:32px;  }
+                .fn-page .page-item a:hover{ background-position:0 -84px; color:#fff; }
+                .fn-page .page-item a.curr{ background-position:0 -42px; color:#fff;}
+                .fn-page .prev a{ font-size:12px;}
+			</style>
+			<div style="float:left; background:#fff; width:140px; padding:5px 0;">
+				<dl class="applist">
+					<dt><a href="/app/ioslist/<%= common.iosgamecatkey[0] %>">游戏分类<% if(common.iosgamecatkey.indexOf(Number(category))==-1){%>&gt;&gt;<%}%></a></dt>				
+					<% for(var i=0;i<common.iosgamecatkey.length;i++){%>
+                	<dd <% if(common.iosgamecatkey.indexOf(Number(category))==-1){%>class="fn-hide"<%}%> <% if(category == common.iosgamecatkey[i]){ %> class="curr" <%}%> >
+                		<a href="/app/ioslist/<%= common.iosgamecatkey[i] %>"><%= common.iosgamecat[common.iosgamecatkey[i]]%></a>
+                		<i></i>
+                	</dd>
+                	<%}%>
+				</dl>
+				<dl class="applist">
+					<dt><a href="/app/ioslist/<%= common.iossoftcatekey[0] %>">软件分类<% if(common.iossoftcatekey.indexOf(Number(category))==-1){%>&gt;&gt;<%}%></a></dt>
+					<% for(var i=0;i<common.iossoftcatekey.length;i++){%>
+                	<dd <% if(common.iossoftcatekey.indexOf(Number(category))==-1){%>class="fn-hide"<%}%> <% if(category == common.iossoftcatekey[i]){ %> class="curr" <%}%> >
+                		<a href="/app/ioslist/<%= common.iossoftcatekey[i] %>"><%= common.iossoftcate[common.iossoftcatekey[i]]%></a>
+                		<i></i>
+                	</dd>
+                	<%}%>
+				</dl>
+			</div>
+		
+			
+		
+			<div class="all-box all-box-tj" style="float:right;">
+				<div class="top fn-clear">
+					<h3 class="title fn-left">排行榜<span class="tdesc"></span></h3>
+					
+				</div>
+				
+				<div class="con bapplist fn-clear">
+					
+					<%for(var i=0;i<iosapps.length;i++){%>
+					
+					<dl class="bapp fn-left">
+						<dt>
+							<a target="_blank" title="<%= iosapps[i].name%>" href="/app/ios/<%= iosapps[i].appid%>">
+								<img width="90" height="90" alt="<%= iosapps[i].name%>" src="<%= iosapps[i].img%>">
+							</a>
+						</dt>
+						<dd>
+							<h3><a target="_blank" title="<%= iosapps[i].name%>" href="/app/ios/<%= iosapps[i].appid%>"><%= iosapps[i].name.substring(0,10)%></a></h3>
+							<div title="36分" class="gradeStar3">
+								<span class="gray"></span>
+								<span style="width:27.37683692248538px" class="orange"></span>
+							</div>
+							<p>版本<%= iosapps[i].version%> | <%= iosapps[i].size%></p>
+							<p>分享日期 <%= iosapps[i].releasedate%></p>
+						</dd>
+					</dl>
+					<%}%>
+					
+				</div>
+
+
+                <%- partial('module/apppagehelp',{total:totalCount,page:page,base:"/app/ioslist/"+(category?(category+"/"):"")+"p_"}) %>
+			</div>
+		
+		
+		
+		
+		</div>
+		
+	</div>
+	
+	
+    <div>
+        
+    </div>
+
+
+	<%- partial('module/footer') %>
+</body>
+</html>

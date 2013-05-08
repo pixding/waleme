@@ -24,6 +24,7 @@ app.helpers({
 	config: config,
 	common: common
 });
+
 var static_dir = path.join(__dirname, 'static');
 app.configure('development', function(){
 	app.use(express.static(__dirname + "/static"));

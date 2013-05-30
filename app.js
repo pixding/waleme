@@ -22,7 +22,7 @@ app.configure(function(){
 
 app.helpers({
 	config: config,
-	common: common
+	common: common 
 });
 
 

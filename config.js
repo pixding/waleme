@@ -1,5 +1,5 @@
-exports.config = {
-	arttype : ["业界","学堂","攻略"],
+eports.config = {
+	arttype : ["业界1","学堂","攻略"],
     db: 'mongodb://127.0.0.1/pyy',
     session_secret:"pyy",
     adminlimit:50,
